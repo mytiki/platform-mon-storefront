@@ -2,7 +2,7 @@ version = 0.1
 
 [default.global.parameters]
 stack_name = "mytiki-storefront-hosting"
-s3_bucket = "com.mytiki.core.bucket"
+s3_bucket = "mytiki-sam-deploy-sandbox-ricardo-us-east-2"
 s3_prefix = "storefront/hosting"
 region = "us-east-1"
 template_file = "out/template.yml"
