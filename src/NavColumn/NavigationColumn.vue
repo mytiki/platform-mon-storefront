@@ -4,20 +4,10 @@ import NavHeader from './NavHeader.vue'
 </script>
 
 <template>
-  <div class="nav-column-container">
+  <div class="nav-column-container h-screen border-r border-solid border-black/10 flex flex-col mt-[1.125rem] px-[1.125rem]">
     <nav-header />
     <nav-section />
   </div>
 </template>
 
-<style scoped>
-.nav-column-container {
-  height: 100vh;
-  border-right: 1px solid #00000010;
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-  margin-top: 1.125em;
-  padding: 0 1.125em;
-}
-</style>
+

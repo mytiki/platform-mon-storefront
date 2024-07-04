@@ -38,7 +38,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="datasetAttributes" id="dataset-screen">
+  <div v-if="datasetAttributes" class="flex">
     <content-column :title="title" :subtitle="datasetAttributes.description">
       <dataset-grid :dataset-attributes="datasetAttributes"/>
     </content-column>
@@ -49,7 +49,5 @@ onMounted(async () => {
   </template>
 
 <style scoped>
-#dataset-screen{
-  display: flex;
-}
+
 </style>

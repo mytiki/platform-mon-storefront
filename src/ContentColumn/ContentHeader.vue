@@ -15,64 +15,25 @@ const emit = defineEmits(['toggle'])
 </script>
 
 <template>
-  <div class="container">
-    <div class="title-button-container">
-      <h1>{{ title }}</h1>
+  <div class="container flex flex-col gap-2">
+    <div class="flex items-center justify-between">
+      <h1 class="font-semibold capitalize text-[1.6875rem] ">{{ title }}</h1>
     </div>
-    <h2>
+    <h2 class="text-[0.89063rem] font-normal">
       {{ subtitle }}
     </h2>
-    <hr />
+    <hr class="mt-6 border-t border-solid border-black-100"/>
   </div>
 </template>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 h1 {
   color: var(--primary-text-color);
-  font-weight: 600;
-  text-transform: capitalize;
-  font-size: 1.6875rem;
-  font-style: normal;
-  font-weight: 600;
   line-height: normal;
 }
 
 h2 {
   color: var(--secondary-text-color);
-  font-size: 0.89063rem;
-  font-style: normal;
-  font-weight: 400;
   line-height: normal;
-}
-
-hr {
-  margin-top: 1.5rem;
-  border-top: 1px solid #00000010;
-}
-
-.title-button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.menu-button {
-  border-radius: 0.25em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--secondary-text-color);
-  background-color: transparent;
-  border: 1px solid var(--secondary-text-color);
-  border: none;
-  box-shadow:
-    0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 </style>

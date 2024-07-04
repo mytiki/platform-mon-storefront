@@ -29,7 +29,7 @@ const subtitle =
 </script>
 
 <template>
-  <div id="legal-compliance-screen" v-if="content">
+  <div v-if="content" class="flex">
     <content-column :title="'my account: legal compliance'" :subtitle="subtitle">
       <legal-compliance-content :content="content"/>
     </content-column>
@@ -38,9 +38,3 @@ const subtitle =
     </third-column>
   </div>
 </template>
-
-<style scoped>
-#legal-compliance-screen {
-  display: flex;
-}
-</style>

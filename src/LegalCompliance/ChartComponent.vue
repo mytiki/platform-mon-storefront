@@ -28,29 +28,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
-    <h1>{{ title }}</h1>
+  <div class="border border-solid border-black/20 mt-4 rounded-md">
+    <h1 class="flex p-3 items-start gap-2 self-stretch text-xs font-normal leading-normal uppercase">{{ title }}</h1>
     <div :id="containerId"></div>
   </div>
 </template>
 
-<style scoped>
-.container {
-  border: 1px solid #00000020;
-  margin-bottom: 1em;
-  border-radius: 0.3em;
-}
-h1 {
-  display: flex;
-  padding: 0.75rem;
-  align-items: flex-start;
-  gap: 1.4375rem;
-  align-self: stretch;
-  font-size: 0.6875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: uppercase;
-  color: var(--primary-text-color);
-}
-</style>
