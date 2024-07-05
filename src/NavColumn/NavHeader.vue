@@ -9,7 +9,7 @@ const search = ref<string>()
   <div class="flex justify-center items-center">
     <logo-img />
   </div>
-  <InputText type="text" v-model="search" class="input-text my-6" size="small"/>
+  <InputText type="text" v-model="search" class="input-text my-6" size="small" placeholder="Search..."/>
 </template>
 
 <style scoped>
