@@ -5,7 +5,7 @@ import ChartComponent from './ChartComponent.vue'
 import type TrailInfo from './types/TrailInfo'
 
 import type { PropType } from 'vue'
-import { type LegalComplianceRsp, type LegalComplianceData } from './types/LegalComplianceRsp'
+import { type LegalComplianceRsp, type LegalComplianceData, type TrailsData } from './types/LegalComplianceRsp'
 
 const props = defineProps({
   content: {
@@ -16,13 +16,14 @@ const props = defineProps({
 
 const accentColor = getComputedStyle(document.body).getPropertyValue('--accent-color')
 
-const trailInfo: TrailInfo[] = props.content.data.map((el: LegalComplianceData) => {
-  return {
-    date: el.attributes.publishedAt,
-    approved: el.attributes.approved,
-    agreement: el.attributes.name
-  }
-})
+const trailInfo: TrailInfo[] = props.content.data.flatMap((legalComplianceData: LegalComplianceData) => {
+  return legalComplianceData.attributes.trails.data.map((trailsData: TrailsData) => ({
+    name: legalComplianceData.attributes.name,
+    date: trailsData.attributes.date,
+    approved: trailsData.attributes.approved,
+    agreement: legalComplianceData.attributes.agreement_url,
+  }));
+});
 
 function calculatePercentages(arr: number[]): number[] {
   const total = arr.reduce((acc, val) => acc + val, 0)
@@ -48,7 +49,7 @@ const dataSourceChartData: ChartData = {
 }
 
 const approvedForArray = props.content.data.flatMap(
-  (el: LegalComplianceData) => el.attributes.approved_for.approved_for
+  (el: LegalComplianceData) => el.attributes.approved_for
 )
 
 const approvedForCountMap = approvedForArray.reduce(

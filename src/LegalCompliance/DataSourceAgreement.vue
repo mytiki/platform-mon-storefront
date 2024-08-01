@@ -21,12 +21,12 @@ defineProps({
       :key="dataset.id"
     >
       <div class="checkbox-container">
-        <input type="checkbox" :id="`${dataset.attributes.name}`" @click="console.log('test')" />
-        <label :for="`${dataset.attributes.name}`"></label>
+        <input type="checkbox" :id="`${dataset.attributes.name}`" @click="console.log('test')" v-model="dataset.attributes.approved" disabled/>
+        <label :for="`${dataset.attributes.name}`"></label> 
       </div>
       <div class="odd-div">{{ Number(dataset.attributes.records).toLocaleString() }} RECORDS</div>
       <span
-        ><a :href="dataset.attributes.link" target="_blank">
+        ><a :href="dataset.attributes.agreement_url" target="_blank">
           {{ dataset.attributes.name }}
         </a></span
       >
@@ -71,7 +71,6 @@ input[type='checkbox'] + label {
   height: 0.6875rem;
   border: 1px solid var(--accent-color);
   border-radius: 0.1em;
-  cursor: pointer;
 }
 input[type='checkbox']:checked + label:after {
   display: flex;
@@ -79,7 +78,6 @@ input[type='checkbox']:checked + label:after {
   justify-content: center;
   content: '\2713';
   font-size: 0.65em;
-  cursor: pointer;
   color: #00000090;
 }
 

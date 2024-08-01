@@ -25,7 +25,11 @@ defineProps({
         <tr v-for="info in trailInfo">
           <td>{{ info.date }}</td>
           <td>{{ info.approved }}</td>
-          <td>{{ info.agreement }}</td>
+          <td>
+            <a :href="info.agreement">
+              {{ info.name }}
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -91,5 +95,12 @@ td:nth-child(even) {
 table {
   border: 1px solid #00000020;
   border-radius: 0.75em;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
 }
 </style>
