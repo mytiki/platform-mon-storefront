@@ -13,7 +13,9 @@ onBeforeMount(async () => {
 
 const router = useRouter()
 
-const selectedRoute = ref<string>(Router.getInitialRoute())
+const selectedRoute = ref<string>('Legal Compliance')
+
+console.log(selectedRoute.value)
 
 const handleRouting = (route: string, section: string) => {
   selectedRoute.value = route

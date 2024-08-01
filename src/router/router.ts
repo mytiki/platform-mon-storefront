@@ -11,7 +11,6 @@ export default class Router {
   private static instance: Router
 
   private myAccountRoutes: string[] = [
-    'Access Keys',
     'Legal Compliance'
   ]
   private dataAccessroutes: string[] = [
@@ -30,11 +29,6 @@ export default class Router {
       Router.instance = new Router()
     }
     return Router.instance
-  }
-
-  public static getInitialRoute(): string {
-    const instance = Router.getInstance()
-    return instance.myAccountRoutes[3]
   }
 
   public static async getRoutes(): Promise<MainRouter[]> {
