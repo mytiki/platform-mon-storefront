@@ -16,12 +16,9 @@ build: compile
 	sam validate --lint
 
 publish: build
-	sam package --output-template-file .aws-sam/packaged.yaml ;\
-	result=$$(sam publish --template .aws-sam/packaged.yaml) ;\
-	arn=$$(echo "$$result" | egrep -o 'arn:aws:serverlessrepo:[^ ]+' | head -n 1) ;\
-	arn_clean=$$(echo "$$arn" | sed 's/[\"'\'']//g' | tr -d '[:space:]') ;\
-	echo "Packaged: $$arn_clean"
-	sam deploy 
+	sam deploy --parameter-overrides "HostName=$(HOSTNAME) DNSZone=$(DNSZone)" --capabilities CAPABILITY_IAM
+	echo VITE_API_URL="$(CMS_URL)" >> ../.env
+	npm run deploy --bucket=$(HOSTNAME)-storefront-site
 
 clean:
 	rm -rf .aws-sam
