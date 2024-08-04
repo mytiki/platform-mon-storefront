@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { type PropType } from 'vue'
 import type TrailInfo from './types/TrailInfo'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
 
 defineProps({
   trailInfo: {
