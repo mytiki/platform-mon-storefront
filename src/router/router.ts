@@ -30,11 +30,6 @@ export default class Router {
     return Router.instance
   }
 
-  public static getInitialRoute(): string {
-    const instance = Router.getInstance()
-    return instance.myAccountRoutes[3]
-  }
-
   public static async getRoutes(): Promise<MainRouter[]> {
     const instance = Router.getInstance()
 

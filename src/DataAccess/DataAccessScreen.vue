@@ -24,7 +24,7 @@ onMounted(async () => {
     headers: headers
   }
   const response: DataAccessRsp = await (
-    await fetch(`${import.meta.env.VITE_API_URL}/data-accesses`, options)
+    await fetch(`${import.meta.env.VITE_API_URL}/docs`, options)
   ).json()
 
   content.value = response.data.find((el: DataAccess) => el.attributes.name === route.name)

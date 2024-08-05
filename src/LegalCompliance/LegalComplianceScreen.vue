@@ -19,7 +19,7 @@ onMounted(async () => {
     headers: headers
   }
   content.value = await (
-    await fetch(`${import.meta.env.VITE_API_URL}/legal-compliances`, options)
+    await fetch(`${import.meta.env.VITE_API_URL}/agreements`, options)
   ).json()
 
 })
