@@ -15,11 +15,15 @@ export interface DatasetResponse {
     name: string;
     description: string;
     stats: Stats;
-    charts: ChartData[][];
+    charts: Charts;
     taxonomy: Taxonomy;
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
+  }
+
+  export interface Charts {
+    charts: ChartData[][];
   }
   
   export interface Chart {
