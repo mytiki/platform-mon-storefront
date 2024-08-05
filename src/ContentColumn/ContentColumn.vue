@@ -17,31 +17,14 @@ const emit = defineEmits(['toggle'])
 </script>
 
 <template>
-  <div class="content-column-container">
+  <div class="flex flex-col items-start self-stretch py-12 px-[1.6875rem] border-r border-solid border-black-100">
     <content-header
       :title="title"
       :subtitle="subtitle"
       @toggle="$emit('toggle')"
     />
-    <div class="slot-container">
+    <div class="mt-6 w-full">
       <slot />
     </div>
   </div>
 </template>
-
-<style scoped>
-.content-column-container {
-  border-right: 1px solid #00000010;
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  padding: 3rem 1.6875rem;
-  align-items: flex-start;
-  align-self: stretch;
-}
-
-.slot-container {
-  margin-top: 1.5rem;
-  width: 100%;
-}
-</style>

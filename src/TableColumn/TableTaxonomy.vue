@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
-import type { Taxonomy } from '@/Dataset/types/DatasetResponse';
+import type { PropType } from 'vue'
+import type { Taxonomy } from '@/Dataset/types/DatasetResponse'
 
 defineProps({
   table: {
@@ -12,76 +12,29 @@ defineProps({
     required: true
   }
 })
-
 </script>
 
 <template>
-  <div class="table-taxonomy-container">
-    <h2>TAXONOMY</h2>
-    <ul>
-      <li v-for="data of taxonomy[table.toLowerCase()]" :key="data.data">
-        <div class="table-cell-container">
-          <span class="table-cell-type">
+  <div class="flex flex-col items-start gap-[0.625rem] self-stretch">
+    <h2 class="text-[0.6875rem] font-bold uppercase leaning-normal">TAXONOMY</h2>
+    <ul class="w-full flex flex-col gap-2">
+      <li
+        v-for="data of taxonomy[table.toLowerCase()]"
+        :key="data.data"
+        class="list-none flex flex-col items-start gap-1 self-stretch w-full"
+      >
+        <div
+          class="flex justify-between items-start self-stretch text-[0.6875rem] font-normal lowercase leaning-normal"
+        >
+          <span>
             {{ data.data }}
           </span>
-          <span class="table-cell-type">{{ data.type }}</span>
+          <span>{{ data.type }}</span>
         </div>
-        <span class="table-cell-description"
-          >{{ data.description }}</span
-        >
+        <span class="text-black/80 text-[0.5625rem] font-normal leaning-normal">{{
+          data.description
+        }}</span>
       </li>
     </ul>
   </div>
 </template>
-
-<style scoped>
-.table-taxonomy-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.625rem;
-  flex: 1 0 0;
-  align-self: stretch;
-}
-
-ul {
-  width: 100%;
-}
-
-h2 {
-  color: var(--secondary-text-color);
-  font-size: 0.6875rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: uppercase;
-}
-li {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-  align-self: stretch;
-  width: 100%;
-}
-.table-cell-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-  font-size: 0.6875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-transform: lowercase;
-}
-
-.table-cell-description {
-  color: color-mix(in srgb, var(--primary-text-color) 50%, transparent);
-  font-size: 0.5625rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-</style>

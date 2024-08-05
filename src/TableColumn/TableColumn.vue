@@ -17,20 +17,9 @@ defineProps({
 </script>
 
 <template>
-  <div class="table-column">
+  <div class="flex p-[1.125rem] flex-col items-start gap-8 self-stretch">
     <table-column-header :table="table" />
     <table-taxonomy :table="table" :taxonomy="datasetAttributes.taxonomy"/>
   </div>
 </template>
 
-<style scoped>
-.table-column {
-  display: flex;
-  padding: 1.125rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-  flex: 1 0 0;
-  align-self: stretch;
-}
-</style>

@@ -90,9 +90,9 @@ const tableData = [
 </script>
 
 <template>
-  <div class="results-container">
-    <h1 class="text-2xl font-semibold">Results</h1>
+  <div class="results-container overflow-auto w-[60rem] p-0">
     <div class="card">
+      <h1 class="text-2xl font-semibold pl-2">Results</h1>
       <DataTable :value="tableData" tableStyle="min-width: 50rem">
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
@@ -116,26 +116,3 @@ const tableData = [
   </div>
 </template>
 
-<style>
-.results-container {
-  overflow: scroll;
-  width: 60em;
-  padding: 0;
-}
-
-table {
-  text-align: left;
-  border-collapse: separate;
-  border-spacing: 0.75rem 0.75rem;
-}
-
-th {
-  color: var(--secondary-text-color);
-  font-weight: 600;
-}
-td {
-  color: var(--secondary-text-color);
-  font-weight: 400;
-  overflow: scroll;
-} 
-</style>

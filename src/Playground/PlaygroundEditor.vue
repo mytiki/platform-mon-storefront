@@ -45,9 +45,9 @@ const emits = defineEmits(['update'])
 </script>
 
 <template>
-  <div class="editor-container">
+  <div class="flex flex-col gap-4">
     <div
-    class="editor"
+    class="editor border border-solid border-black/30 rounded-md gap-4 p-4"
     >
       <div id="editor" ref="editor" style="height: 15rem; width: 100%;"></div>
     </div>
@@ -56,17 +56,3 @@ const emits = defineEmits(['update'])
   </div>
 </template>
 
-<style scoped>
-.editor-container{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-.editor{
-    border: 1px solid #00000030;
-    border-radius: 0.35em;
-    gap: 1em;
-    padding: 1em;
-}
-
-</style>

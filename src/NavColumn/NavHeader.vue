@@ -6,19 +6,11 @@ const search = ref<string>()
 </script>
 
 <template>
-  <div class="img-container">
+  <div class="flex justify-center items-center">
     <logo-img />
   </div>
-  <InputText type="text" v-model="search" class="input-text" size="small"/>
+  <InputText type="text" v-model="search" class="input-text my-6" size="small" placeholder="Search..."/>
 </template>
 
 <style scoped>
-.img-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.input-text{
-  margin: 1.5em 0;
-}
 </style>

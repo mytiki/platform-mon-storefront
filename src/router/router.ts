@@ -9,9 +9,7 @@ import { createMemoryHistory, createRouter } from 'vue-router'
 export default class Router {
   private static instance: Router
 
-  private myAccountRoutes: string[] = [
-    'Legal Compliance'
-  ]
+  private myAccountRoutes: string[] = ['Legal Compliance']
   private dataAccessroutes: string[] = [
     'Playground',
     'Aws Athena',
@@ -39,22 +37,28 @@ export default class Router {
     const instance = Router.getInstance()
 
     const datasetsRoutes: string[] = []
-    const headers = new Headers()
-    headers.append(
-      'Authorization',
-      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbGllbnRfaWQiLCJhdWQiOiJteXRpa2kuY29tIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.C_xGCt8BsAUjfFm6dJ60VoMu1qyxu7LAzbe6bm0B7Rw'
-    )
-    const options = {
-      method: 'GET',
-      headers: headers
+    try {
+      const headers = new Headers()
+      headers.append(
+        'Authorization',
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbGllbnRfaWQiLCJhdWQiOiJteXRpa2kuY29tIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.C_xGCt8BsAUjfFm6dJ60VoMu1qyxu7LAzbe6bm0B7Rw'
+      )
+      const options = {
+        method: 'GET',
+        headers: headers
+      }
+      const response = await (
+        await fetch(`${import.meta.env.VITE_API_URL}/datasets`, options)
+      ).json()
+
+      response.data.forEach((element: any) => {
+        datasetsRoutes.push(element.attributes.name)
+      })
+
+      instance.datasetsRoutes = datasetsRoutes
+    } catch (error) {
+      console.log('error: no datasets')
     }
-    const response = await (await fetch(`${import.meta.env.VITE_API_URL}/datasets`, options)).json()
-
-    response.data.forEach((element: any) => {
-      datasetsRoutes.push(element.attributes.name)
-    })
-
-    instance.datasetsRoutes = datasetsRoutes
 
     const routes: MainRouter[] = [
       {
@@ -63,7 +67,7 @@ export default class Router {
       },
       {
         sectionName: 'datasets',
-        navList: instance.datasetsRoutes
+        navList: instance.datasetsRoutes  
       },
       {
         sectionName: 'data access',
@@ -89,7 +93,7 @@ const routes = [
         path: 'legalCompliance',
         name: 'legal compliance',
         component: LegalComplianceScreen
-      },
+      }
     ]
   },
   {

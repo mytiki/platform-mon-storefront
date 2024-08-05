@@ -82,9 +82,9 @@ const approvedChartData: ChartData = {
 </script>
 
 <template>
-  <div class="legal-compliance-container">
+  <div class="flex justify-center items-start gap-6 self-stretch">
     <audit-trail :trailInfo="trailInfo" />
-    <div class="chart-container">
+    <div class="chart-container w-full pl-8 flex flex-col">
       <chart-component
         :title="'DATA SOURCES'"
         :containerId="'data-sources'"
@@ -100,20 +100,6 @@ const approvedChartData: ChartData = {
 </template>
 
 <style scoped>
-.legal-compliance-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1.5rem;
-  align-self: stretch;
-}
-
-.chart-container {
-  width: 100%;
-  padding-left: 2em;
-  display: flex;
-  flex-direction: column;
-}
 
 @media (max-width: 1279px) {
   .legal-compliance-container {

@@ -27,46 +27,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="dataset-first-grid-container">
+  <div id="dataset-first-grid-container" class="grid grid-cols-[40%_60%] gap-4">
     <dataset-stats :stats="datasetAttributes.stats" />
-    <div id="first-chart-container">
-      <div id="chart-button-container"></div>
-      <div class="button-container">
+    <div id="first-chart-container" class="flex flex-col items-center justify-center">
+      <div id="chart-button-container" class="flex gap-8 items-center justify-center"></div>
+      <div class="button-container flex flex-col items-center justify-center gap-4 mt-6 self-stretch">
         <Button label="View Sample" severity="success" class="w-44"/>
         <Button label="Compliance Report" severity="contrast" outlined class="w-44"/>
       </div>
     </div>
   </div>
 
-  <div id="dataset-last-grid-container"></div>
+  <div id="dataset-last-grid-container" class="mt-8 grid grid-cols-[50%_50%] gap-4"></div>
 </template>
 
 <style scoped>
-#dataset-first-grid-container {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 1em;
-}
-#dataset-last-grid-container {
-  margin-top: 2em;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 1em;
-}
-#chart-button-container {
-  display: flex;
-  flex-direction: row;
-  gap: 2em;
-  align-items: center;
-  justify-content: center;
-}
-#first-chart-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 @media (max-width: 960px) {
   #dataset-first-grid-container {
     grid-template-columns: 100%;
@@ -74,15 +49,5 @@ onMounted(() => {
   #dataset-last-grid-container {
     grid-template-columns: 100%;
   }
-}
-.button-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  flex: 1 0 0;
-  margin-top: 1.5em;
-  align-self: stretch;
 }
 </style>
