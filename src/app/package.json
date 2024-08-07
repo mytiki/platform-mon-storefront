@@ -1,6 +1,6 @@
 {
   "name": "website-client-shop",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -28,8 +28,7 @@
     "@types/markdown-it": "^14.1.1",
     "@types/node": "^20.12.11",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vue/eslint-config-prettier": "^8.0.0",
-    "@vue/eslint-config-typescript": "^12.0.0",
+    "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "eslint": "9.5.0",

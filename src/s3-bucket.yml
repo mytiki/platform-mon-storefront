@@ -1,8 +1,7 @@
   StaticSiteBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub '${HostName}-storefront-site'
+      BucketName: tiki-storefront-site
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: error.html
-  
