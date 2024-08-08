@@ -11,7 +11,7 @@ on:
 
 env:
   AWS_REGION: "us-east-2"
-  PRODUCT_ID: ""
+  PRODUCT_ID: "prod-sg5k3djbircc2"
 
 jobs:
   Publish:
