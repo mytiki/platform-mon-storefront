@@ -29,7 +29,7 @@ compile: template.yml
 
 build: compile
 	sam build --template $(TEMPLATE_FILE)
-	cd src/app && npm run build
+	cd src/app && npm ci && npm run build
 	sam validate --lint --template $(TEMPLATE_FILE)
 
 publish: build
