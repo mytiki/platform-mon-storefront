@@ -11,7 +11,7 @@ semver:
 	else \
 	  if echo "$(version)" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$$'; then \
 	    cd src/app && \
-	  	sed -i '' 's/"version": "[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(version)"/' package.json && \
+	  	sed 's/"version": "[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(version)"/' package.json && \
 			npm ci; \
 	  else \
 	    echo "version must be in semver format (major.minor.patch)"; \
