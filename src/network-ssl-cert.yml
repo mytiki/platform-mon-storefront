@@ -1,9 +1,9 @@
   NetworkSSLCertificate: 
     Type: AWS::CertificateManager::Certificate
     Properties:
-      DomainName: storefront.tiki.company
+      DomainName: !Ref Domain
       DomainValidationOptions:
-        - DomainName: storefront.tiki.company
+        - DomainName: !Ref Domain
           HostedZoneId: !Ref HostedZone
       ValidationMethod: DNS
   
