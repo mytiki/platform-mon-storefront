@@ -1,5 +1,0 @@
-HostedZone:
-  Type: AWS::Route53::HostedZone
-  Properties:
-    Name: storefront.tiki.company
-      
